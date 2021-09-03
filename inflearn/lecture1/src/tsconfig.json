@@ -1,0 +1,7 @@
+{
+    "compilerOptoins" : {
+        "target" : "es2015",
+        "module" : "commonjs",
+        "strictNullChecks":true
+    }
+}
