@@ -1,6 +1,6 @@
 {
-    "compilerOptoins" : {
-        "target" : "es2015",
+    "compilerOptions" : {
+        "target" : "esnext",
         "module" : "commonjs",
         "strictNullChecks":true
     }

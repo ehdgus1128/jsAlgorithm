@@ -5,11 +5,11 @@
 //----------------
 // 1. 큰 수 출력하기
 // N개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 수만 출력, 첫 번째 수는 무조건 출력
-var solution1 = function (arr) {
-    var answer;
+const solution1 = (arr) => {
+    let answer = new Array();
     // 1.
     answer.push(arr[0]);
-    for (var i = 1; i < arr.length; i++) {
+    for (let i = 1; i < arr.length; i++) {
         if (arr[i - 1] < arr[i])
             answer.push(arr[i]);
     }
@@ -20,12 +20,12 @@ var solution1 = function (arr) {
 // 2. 보이는 학생
 // 선생님이 N명의 학생을 일렬로 세웠다. 일렬로 서 있는 학생의 키가 앞에서부터 순서대로 주어질 때, 
 // 맨 앞에 서 있는 선생님이 볼 수 있는 학생의 수를 구하는 프로그램(앞에 서 있는 사람들보다 크면 보이고, 작거나 같으면 안 보임)
-var solution2 = function (arr) {
-    var answer = 0;
+const solution2 = (arr) => {
+    let answer = 0;
     // 1.
-    var max = arr[0];
+    let max = arr[0];
     answer++;
-    for (var i = 1; i < arr.length; i++) {
+    for (let i = 1; i < arr.length; i++) {
         if (max < arr[i]) {
             answer++;
             max = arr[i];
@@ -39,8 +39,8 @@ var solution2 = function (arr) {
 // 총 N번의 게임을 하여 A가 이기면 A를 출력하고, B가 이기면 B를 출력. 비길 경우에는 D를 출력.
 // 가위, 바위, 보 정보는 1:가위, 2:바위, 3:보
 // 각 회의 가위, 바위, 보 정보가 주어지면 각 회를 누가 이겼는지 출력
-var solution3 = function (a, b) {
-    var answer = [];
+const solution3 = (a, b) => {
+    let answer = [];
     // 1.
     // if(0 < a.length){
     //     for(let i = 0; i < a.length ; i++){
@@ -49,7 +49,7 @@ var solution3 = function (a, b) {
     // }
     // 2.
     answer = '';
-    for (var i = 0; i < a.length; i++) {
+    for (let i = 0; i < a.length; i++) {
         if (a[i] === b[i])
             answer += 'D ';
         else {
@@ -64,7 +64,7 @@ var solution3 = function (a, b) {
     return answer;
 };
 function gameRule(a, b) {
-    var result;
+    let result = '';
     if (a === 1 && b === 3) {
         result = 'A';
     }
@@ -100,8 +100,8 @@ OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다
 점수 1 0 1 2 3 0 0 1 2 0
 시험문제의 채점 결과가 주어졌을 때, 총 점수를 계산하는 프로그램을 작성하시오.
 */
-var solution4 = function (arr) {
-    var answer = 0, cnt = 0;
+const solution4 = (arr) => {
+    let answer = 0, cnt = 0;
     // 1.
     // answer += arr[0];
     // for(let i = 1; i < arr.length; i++){
@@ -116,12 +116,10 @@ var solution4 = function (arr) {
     //     }
     // }
     // 2.
-    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-        var x = arr_1[_i];
+    for (let x of arr) {
         if (x === 1) {
             cnt++;
             answer += cnt;
-            console.log(cnt);
         }
         else
             cnt = 0;
@@ -133,8 +131,8 @@ var solution4 = function (arr) {
 // 5. 등수구하기
 // N명의 학생의 국어점수가 입력되면 각 학생의 등수를 입력된 순서대로 출력
 // 같은 점수가 입력될 경우 높은 등수로 동일 처리
-var solution5 = function (arr) {
-    var answer = [];
+const solution5 = (arr) => {
+    let answer;
     // 1.
     // for(let i = 0; i < arr.length; i++){
     //     let rank = 1;
@@ -144,15 +142,102 @@ var solution5 = function (arr) {
     //     }
     // }
     // 2.
-    var n = arr.length;
-    answer = Array.from({ length: n }, function () { return 1; });
-    for (var i = 0; i < n; i++) {
-        for (var j = 0; j < n; j++) {
+    let n = arr.length;
+    answer = Array.from({ length: n }, () => 1);
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
             if (arr[j] > arr[i])
                 answer[i]++;
         }
     }
     return answer;
 };
-var arr = [87, 89, 92, 100, 76];
-console.log(solution5(arr));
+// let arr=[87, 89, 92, 100, 76];
+// console.log(solution5(arr));
+// 6. 격자판 최대합
+// 각 열의 합, 각 행의 합, 두 대각선의 합 중 가장 큰 합을 출력
+const solution6 = (arr) => {
+    let answer = Number.MIN_SAFE_INTEGER;
+    // 1.
+    const n = arr.length;
+    let row, column, diagonal1, diagonal2;
+    row = column = diagonal1 = diagonal2 = 0;
+    // 행, 열 값 비교
+    for (let i = 0; i < n; i++) {
+        row = column = 0;
+        for (let j = 0; j < n; j++) {
+            row += arr[i][j];
+            column += arr[j][i];
+        }
+        answer = Math.max(answer, row, column);
+    }
+    // 대각선 값 비교
+    for (let i = 0; i < n; i++) {
+        diagonal1 += arr[i][i];
+        diagonal2 += arr[i][n - i - 1];
+    }
+    answer = Math.max(answer, diagonal1, diagonal2);
+    return answer;
+};
+// let arr=[[10, 13, 10, 12, 15], 
+//         [12, 39, 30, 23, 11],
+//         [11, 25, 50, 53, 15],
+//         [19, 27, 29, 37, 27],
+//         [19, 13, 30, 13, 19]];
+// console.log(solution6(arr));
+// 7. 봉우리
+/**
+ * 지도 정보가 N*N 격자판에 주어진다. 각 격자에는 그 지역의 높이가 쓰여져 있다. 각 격자판의 숫자 중 자신의 상하좌우
+ * 숫자보다 큰 숫자는 봉우리 지역이다. 봉우리 지역이 몇 개 있는 지 알아내는 프로그램을 작성
+ * 격자의 가장자리는 0으로 초기화 되었다.
+ * 만약 N = 5이고, 격자판의 숫자가 다음과 같다면 봉우리의 개수는 10개.
+ * [[5, 3, 7, 2, 3],
+    [3, 7, 1, 6, 1],
+    [7, 2, 5, 3, 4],
+    [4, 3, 6, 4, 1],
+    [8, 7, 3, 5, 2]]
+ *
+ * */
+const solution7 = (arr) => {
+    let answer = 0;
+    // 1.
+    // let n = arr.length;
+    // for(let i = 0; i < n; i++){
+    //     arr[i].push(0);
+    //     arr[i].unshift(0);
+    // }
+    // arr.unshift(Array.from({length:n + 2}, () => 0));
+    // arr.push(Array.from({length:n + 2}, () => 0));
+    // for(let i = 1; i < n + 1; i++){
+    //     for(let j = 1; j < n + 1; j++){
+    //         if(Math.max(arr[i][j], arr[i+1][j], arr[i-1][j], arr[i][j+1], arr[i][j-1]) === arr[i][j])
+    //         answer++;
+    //     }   
+    // }
+    // 2.
+    let n = arr.length;
+    let dx = [-1, 0, 1, 0];
+    let dy = [0, 1, 0, -1];
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            let flag = 1;
+            for (let k = 0; k < 4; k++) {
+                let nx = i + dx[k];
+                let ny = j + dy[k];
+                if (0 <= nx && nx < n && 0 <= ny && ny < n && arr[i][j] <= arr[nx][ny]) {
+                    flag = 0;
+                    break;
+                }
+            }
+            if (flag)
+                answer++;
+        }
+    }
+    return answer;
+};
+// let arr=[[5, 3, 7, 2, 3], 
+//         [3, 7, 1, 6, 1],
+//         [7, 2, 5, 3, 4],
+//         [4, 3, 6, 4, 1],
+//         [8, 7, 3, 5, 2]];
+// console.log(solution7(arr));
