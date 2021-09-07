@@ -6,7 +6,7 @@
 
 // 1. 큰 수 출력하기
 // N개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 수만 출력, 첫 번째 수는 무조건 출력
-const solution1 = (arr : number[]) => {
+const solution2_1 = (arr : number[]) => {
     let answer:number[] = new Array();
 
     // 1.
@@ -19,12 +19,12 @@ const solution1 = (arr : number[]) => {
 }
 
 // let arr=[7, 3, 9, 5, 6, 12];
-// console.log(solution1(arr));
+// console.log(solution2_1(arr));
 
 // 2. 보이는 학생
 // 선생님이 N명의 학생을 일렬로 세웠다. 일렬로 서 있는 학생의 키가 앞에서부터 순서대로 주어질 때, 
 // 맨 앞에 서 있는 선생님이 볼 수 있는 학생의 수를 구하는 프로그램(앞에 서 있는 사람들보다 크면 보이고, 작거나 같으면 안 보임)
-const solution2 = (arr : number[]) => {
+const solution2_2 = (arr : number[]) => {
     let answer: number = 0;
 
     // 1.
@@ -41,13 +41,13 @@ const solution2 = (arr : number[]) => {
 }
 
 // let arr=[130, 135, 148, 140, 145, 150, 150, 153];
-// console.log(solution2(arr));
+// console.log(solution2_2(arr));
 
 // 3. 가위바위보
 // 총 N번의 게임을 하여 A가 이기면 A를 출력하고, B가 이기면 B를 출력. 비길 경우에는 D를 출력.
 // 가위, 바위, 보 정보는 1:가위, 2:바위, 3:보
 // 각 회의 가위, 바위, 보 정보가 주어지면 각 회를 누가 이겼는지 출력
-const solution3 = (a:number[], b:number[]) => {
+const solution2_3 = (a:number[], b:number[]) => {
     let answer:[] | string = [];
 
     // 1.
@@ -90,7 +90,7 @@ function gameRule(a:number,b:number):string {
 
 // let a=[2, 3, 3, 1, 3];
 // let b=[1, 1, 2, 2, 3];
-// console.log(solution3(a, b));
+// console.log(solution2_3(a, b));
 
 // 4. 점수계산
 /*
@@ -109,7 +109,7 @@ OX 문제는 맞거나 틀린 두 경우의 답을 가지는 문제를 말한다
 시험문제의 채점 결과가 주어졌을 때, 총 점수를 계산하는 프로그램을 작성하시오.
 */
 
-const solution4 = (arr:number[]) => {
+const solution2_4 = (arr:number[]) => {
     let answer = 0, cnt = 0;
 
     // 1.
@@ -138,12 +138,12 @@ const solution4 = (arr:number[]) => {
 }
 
 // let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
-// console.log(solution4(arr));
+// console.log(solution2_4(arr));
 
 // 5. 등수구하기
 // N명의 학생의 국어점수가 입력되면 각 학생의 등수를 입력된 순서대로 출력
 // 같은 점수가 입력될 경우 높은 등수로 동일 처리
-const solution5 = (arr:number[]) => {
+const solution2_5 = (arr:number[]) => {
     let answer;
 
     // 1.
@@ -168,11 +168,11 @@ const solution5 = (arr:number[]) => {
 }
 
 // let arr=[87, 89, 92, 100, 76];
-// console.log(solution5(arr));
+// console.log(solution2_5(arr));
 
 // 6. 격자판 최대합
 // 각 열의 합, 각 행의 합, 두 대각선의 합 중 가장 큰 합을 출력
-const solution6 = (arr:Array<number>[]) :number => {
+const solution2_6 = (arr:Array<number>[]) :number => {
     let answer:number = Number.MIN_SAFE_INTEGER;
 
     // 1.
@@ -206,7 +206,7 @@ const solution6 = (arr:Array<number>[]) :number => {
 //         [11, 25, 50, 53, 15],
 //         [19, 27, 29, 37, 27],
 //         [19, 13, 30, 13, 19]];
-// console.log(solution6(arr));
+// console.log(solution2_6(arr));
 
 // 7. 봉우리
 /**
@@ -221,7 +221,7 @@ const solution6 = (arr:Array<number>[]) :number => {
     [8, 7, 3, 5, 2]]
  *  
  * */
-const solution7 = (arr:Array<number>[]):number => {
+const solution2_7 = (arr:Array<number>[]):number => {
     let answer:number = 0;
 
     // 1.
@@ -268,4 +268,4 @@ const solution7 = (arr:Array<number>[]):number => {
 //         [7, 2, 5, 3, 4],
 //         [4, 3, 6, 4, 1],
 //         [8, 7, 3, 5, 2]];
-// console.log(solution7(arr));
+// console.log(solution2_7(arr));

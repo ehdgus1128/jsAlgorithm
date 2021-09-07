@@ -20,7 +20,7 @@ let solution = (a,b,c)=>{
 
 
 // 3. 연필개수
-function solution3(n){
+function solution1_3(n){
     let answer;
     answer=Math.ceil(n/12); //올림
     // answer=Math.floor // 내림
@@ -29,11 +29,11 @@ function solution3(n){
     return answer;
 }
 
-// console.log(solution3(178));
+// console.log(solution1_3(178));
 
 
 // 4. 1부터 N까지의 합
-function solution4(n){
+function solution1_4(n){
     let answer=0;
     for(let i=1; i<=n; i++){
         answer=answer+i;
@@ -42,10 +42,10 @@ function solution4(n){
     return answer;
 }
 
-// console.log(solution4(10));
+// console.log(solution1_4(10));
 
 // 5. 최솟값 구하기
-function solution5(arr){
+function solution1_5(arr){
     let min;
     for(let i = 0; i < arr.length; i++){
         if(i === 0) min = arr[0]
@@ -57,11 +57,11 @@ function solution5(arr){
 }
 
 // let arr=[5, 7, 10, 3, 2, 9, 11, '1원'];
-// console.log(solution5(arr));
+// console.log(solution1_5(arr));
 
 // 6. 홀수
 // 7개의 자연수가 주어질 때, 이들 중 홀수인 자연수들을 모두 골라 그 합을 구하고, 고른 홀수들 중 최소값을 찾는 프로그램
-function solution6(arr){
+function solution1_6(arr){
     let tot = 0, min = Number.MAX_SAFE_INTEGER, results = [];
 
     for(let i = 0; i < arr.length; i++){
@@ -78,11 +78,11 @@ function solution6(arr){
 }
 
 // let arr=[12, 77, 38, 41, 53, 92, 85];
-// console.log(solution6(arr));
+// console.log(solution1_6(arr));
 
 // 7. 10부제
 // 날짜의 일의 자리 숫자가 주어지고 7대의 자동차 번호의 끝 두자리 수가 주어졌을 때 위반하는 자동차의 대수를 출력
-function solution7(day, arr){
+function solution1_7(day, arr){
     let answer=0;
     let dayToStr = day+"";
     // 방법 1.
@@ -128,7 +128,7 @@ function solution7(day, arr){
 }
 
 // let arr=[25, 23, 11, 47, 53, 17, 33];
-// console.log(solution7(3, arr));
+// console.log(solution1_7(3, arr));
 
 // [추가] foreach, map, filter, reduce
 
@@ -183,7 +183,7 @@ let answer4 = a.reduce((acc,v)=>(acc + v),0)
 
 // 8. 일곱난쟁이
 // 9개의 100을 넘지 않은 자연수 배열이 주어졌을 때 7개의 자연수만의 합이 100이다. 나머지 2개 수를 구하라.
-function solution8(arr){
+function solution1_8(arr){
     let result = arr;
     let sum = result.reduce((a,b) => a+b,0);
 
@@ -202,10 +202,10 @@ function solution8(arr){
 }
 
 // let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
-// console.log(solution8(arr));
+// console.log(solution1_8(arr));
 
 // 9. A를 #으로
-function solution9(str){
+function solution1_9(str){
     let answer = '';
 
     // 1. 정규식
@@ -220,11 +220,11 @@ function solution9(str){
 }
 
 // let str="BANANA";
-// console.log(solution9(str));
+// console.log(solution1_9(str));
 
 // 10. 문자 찾기
 // 한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은 문자열에 몇 개 존재하는지, 문자열의 길이는 100을 넘지 않음
-function solution10(str, searchChar){
+function solution1_10(str, searchChar){
     let answer = 0;
     
     // 1. for of
@@ -252,11 +252,11 @@ function solution10(str, searchChar){
 }
 
 // let str="COMPUTERPROGRAMMING";
-// console.log(solution10(str, 'R'));
+// console.log(solution1_10(str, 'R'));
 
 // 11. 대문자 찾기
 // 한 개의 문자열을 입력받아 해당 문자열에 알파벳 대문자가 몇 개 있는지 알아내는 프로그램
-function solution11(str){
+function solution1_11(str){
     let answer = 0;
 
     // 1. match
@@ -282,11 +282,11 @@ function solution11(str){
     return answer;
 }
 // let str="KoreaTimeGood";
-// console.log(solution11(str));
+// console.log(solution1_11(str));
 
 // 12. 대문자로 통일
 // 대문자와 소문자가 같이 존재하는 문자열을 입력 받아 대문자로 모두 통일하여 문자열을 출력
-function solution12(str){
+function solution1_12(str){
     let answer = '';
 
     // 1. toUpperCase
@@ -312,11 +312,11 @@ function solution12(str){
 }
 
 // let str="ItisTimeToStudy";
-// console.log(solution12(str));
+// console.log(solution1_12(str));
 
 // 13. 대소문자 변환
 // 대문자와 소문자가 같이 존재하는 문자열을 입력 받아 대문자는 소문자로 소문자는 대문자로 변환하여 출력
-const solution13 = (str) => {
+const solution1_13 = (str) => {
     let answer = '';
 
     // 1.
@@ -336,11 +336,11 @@ const solution13 = (str) => {
     return answer;
 };
 
-// console.log(solution13("StuDY"));
+// console.log(solution1_13("StuDY"));
 
 // 14. 가장 긴 문자열
 // N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력
-const solution14 = (arr) => {
+const solution1_14 = (arr) => {
     let answer = '', maxLen = Number.MIN_SAFE_INTEGER;
 
     // 1. 
@@ -356,11 +356,11 @@ const solution14 = (arr) => {
 }
 
 // let str=["teacher", "time", "student", "beautiful", "good"];
-// console.log(solution14(str));
+// console.log(solution1_14(str));
 
 // 15. 가운데 문자 출력
 // 소문자로 된 단어(문자열)가 입력되면 그 단어의 가운데 문자를 출력, 단어의 길이가 짝수일 경우 가운데 2개의 문자를 출력
-const solution15 = (str) => {
+const solution1_15 = (str) => {
     let answer = '';
     
     // 1.
@@ -386,11 +386,11 @@ const solution15 = (str) => {
     return answer;
 }
 
-// console.log(solution15("study"));
+// console.log(solution1_15("study"));
 
 // 16. 중복문자제거
 // 소문자로 된 한개의 문자열이 입력되면 중복된 문자를 제거하고 출력. 제거된 문자열의 각 문자는 원래 문자열의 순서를 유지.
-const solution16 = (str) => {
+const solution1_16 = (str) => {
     let answer = '';
 
     // 1.
@@ -406,11 +406,11 @@ const solution16 = (str) => {
     return answer;
 }
 
-// console.log(solution16("ksekkset"));
+// console.log(solution1_16("ksekkset"));
 
 // 17. 중복단어제거
 // N개의 문자열이 입력되면 중복된 문자열은 제거하고 출력, 출력하는 문자열은 원래의 입력순서를 유지
-const solution17 = (str) => {
+const solution1_17 = (str) => {
     let answer = new Array();
 
     // 1.
@@ -425,4 +425,4 @@ const solution17 = (str) => {
 }
 
 // let str=["good", "time", "good", "time", "student"];
-// console.log(solution17(str));
+// console.log(solution1_17(str));
