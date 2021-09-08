@@ -192,7 +192,7 @@ const midByAnswer = (currFind, pastFind, answer, i) =>{
  * 반복되는 문자 바로 오른쪽에 반복 횟수를 표기하는 방법으로 문자열을 압축
  * 반복횟수가 1인 경우는 생략.
  */
-const solution3_5 = (str:string) =>{
+const solution3_5 = (str:string):string =>{
     let answer = '';
 
     // 1.
