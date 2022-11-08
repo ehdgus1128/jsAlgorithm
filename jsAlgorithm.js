@@ -1,4 +1,4 @@
-// SORT
+// 1. SORT
 
 // Selection Sort
 // avg : n^2
@@ -59,5 +59,59 @@ function insertionSort (arr, len){
 const testArr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
 // console.log(selectionSort(testArr, 10));
 // console.log(bubbleSort(testArr, 10));
-console.log(insertionSort(testArr, 10));
+// console.log(insertionSort(testArr, 10));
+
 //========================================================================================
+
+// 2. REMOVE DUPLICATES
+
+// Sorted Array
+
+
+//========================================================================================
+
+// 번외 문제
+
+// 어떤 문자열은 A와 B로만 이루어져 있고, B가 2번만 등장하는 특징이 있다.
+// N의 길이를 가진 이 문자열을 사전 순으로 배열할 때, K번째 문자열의 두번째 B의 위치를 구하시오.
+// ex) N은 문자열의 길이이다. N = 5 일 때, K = 1 -> AAABB, K = 2 -> AABAB ... K = 2 일 때, 두 번째 B의 위치는 5
+// 문제 1. N = 10, K = 24 일 때, 두번째 B의 위치 P의 이진수를 구하시오
+
+function findB(N, K) {
+    let answer = 0; // 2번째 B의 위치
+    
+    if(N > 2){
+        let cur = 1; // K 번째까지의 순서 (문자열을 생성 했으므로 1번째부터)
+        let str = ''; // 문자열
+
+        for(let i = 0; i < N; i++){ // 처음 문자열 생성
+            if(i === N - 2) str += 'B';
+            else str += 'A';
+        }
+        // console.log(str);
+        for(let i = N - 3; 0 <= i; i--){ // 뒤에서 두번째 B를 한칸씩 앞으로 옮기며 루프
+            if(str[i] != 'B'){
+                var strArr = str.split('');
+                strArr[i] = 'B';
+                strArr[i + 1] = 'A';
+                str = strArr.join('');
+            }
+            // console.log(str);
+            for(let j = N - i - 1; 0 <= j; j--){
+                var copyStr = str;
+                if(i + j + 1 < N ) {
+                    var strArr = copyStr.split('');
+                    strArr[i + j + 1] = 'B';
+                    copyStr = strArr.join('');
+                    cur++;
+                    answer = i + j + 2;
+                    if(cur === K) return answer;
+                }
+            }
+        }
+    } else if(N <= 2) answer = 1;
+
+    return answer;
+}
+
+// console.log(findB(10, 24));

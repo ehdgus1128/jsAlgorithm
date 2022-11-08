@@ -9,6 +9,12 @@
 tsc -w
 ```
 
+- js 파일 hot reload
+
+```bash
+nodemon <js file>
+```
+
 ### basic tree
 
 ```
