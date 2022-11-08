@@ -84,34 +84,33 @@ function findB(N, K) {
         let cur = 1; // K 번째까지의 순서 (문자열을 생성 했으므로 1번째부터)
         let str = ''; // 문자열
 
-        for(let i = 0; i < N; i++){ // 처음 문자열 생성
+        for(let i = 0; i < N; i++){ // 처음 문자열 생성 (BA가 맨 뒤로 오는 문자열)
             if(i === N - 2) str += 'B';
             else str += 'A';
         }
-        // console.log(str);
+        console.log(str);
         for(let i = N - 3; 0 <= i; i--){ // 뒤에서 두번째 B를 한칸씩 앞으로 옮기며 루프
-            if(str[i] != 'B'){
+            // console.log(i, str)
+            if(str[i] != 'B'){ // 한칸씩 앞으로 이동하면서 B로 치환하므로 i+1 은 무조건 B
                 var strArr = str.split('');
                 strArr[i] = 'B';
                 strArr[i + 1] = 'A';
                 str = strArr.join('');
             }
             // console.log(str);
-            for(let j = N - i - 1; 0 <= j; j--){
-                var copyStr = str;
-                if(i + j + 1 < N ) {
-                    var strArr = copyStr.split('');
-                    strArr[i + j + 1] = 'B';
-                    copyStr = strArr.join('');
-                    cur++;
-                    answer = i + j + 2;
-                    if(cur === K) return answer;
-                }
+            for(let j = N - i - 2; 0 <= j; j--){ // 두번째 B를 첫번째 B를 만나기 전까지 맨 뒤에서 부터 한칸씩 이동하면서 K번째 위치를 찾는다
+                var copyStr = str; // 첫번째 B가 이동하는 str을 복사
+                var strArr = copyStr.split('');
+                strArr[i + j + 1] = 'B';
+                copyStr = strArr.join('');
+                cur++;
+                answer = i + j + 1 + 1; // + 1을 하는 이유는 순서가 0부터 시작하므로
+                if(cur === K) return answer.toString(2);
             }
         }
     } else if(N <= 2) answer = 1;
 
-    return answer;
+    return answer.toString(2);
 }
 
 // console.log(findB(10, 24));
